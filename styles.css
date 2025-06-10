@@ -1,0 +1,271 @@
+
+:root {
+    --rosa: #eac6d3;
+    --malva: #b8a9c9;
+    --vino: #4a1c40;
+    --dorado: #d4af7f;
+    background-color: #292626;
+}
+
+.profile {
+    width: 100%;
+    height: auto;
+    display:flex;
+
+}
+h1 {
+    color: #4a1c40;
+    font-family: 'Alumni sans SC' , sans-serif ;
+    font-size: 90px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-style: oblique;
+    text-align: center;
+}
+
+.tarjeta {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(-45deg, #6e4152,#72223f, #dcb1f5, #eeb4ce);
+    background-size: 200% 200%;
+    animation: fondoAnimado 10s ease infinite;
+    margin: 0.5rem;
+    cursor: pointer;
+    perspective: 1000px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 3/4;
+    flex: 1 1 200px;
+}
+
+.tarjeta img{
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.tarjeta:hover .tarjetadentro{
+    transform: rotateY(180deg);
+}
+
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; } /* Inicio: el fondo empieza desde la izquierda */
+    50% { background-position: 100% 50%; } /* A la mitad: el fondo se ha movido completamente a la derecha */
+    100% { background-position: 0% 50%; } /* Fin: el fondo vuelve al punto de inicio */
+}
+
+p,.aporte, h2 , h3 { 
+    font-family:'Lora' , serif;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-style:normal;
+}
+
+.aporte{
+    font-size: 1.05rem;
+    line-height: 0.9;
+}
+
+.tittle-nav{
+    background-color: var(--malva);
+    text-shadow: 2px 4px rgba(255, 255, 255, 0.3);
+    margin-right: 0.1rem;
+    margin-left: 0.4rem;
+}
+
+#introduccion, #conclusion, #parrafo, #frase, .final, .intro{
+    font-weight: bold;
+    text-align: center;
+}
+
+.contenedor{
+    display: flex;
+    gap: 0.7rem;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+@media (max-width:750px){
+    .contenedor{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.frontal, .trasera {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility:hidden;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+}
+
+.tarjetadentro{ 
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.trasera{
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.frontal img, .trasera img{
+    width: 100%;
+    height:100% ;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    filter: brightness(0.9);
+    border-radius: 10px;
+}
+
+.frontal img{
+    transform: scale(1);
+    aspect-ratio: 3/4;
+    object-position: center 50%;
+    position:static;
+}
+
+.tarjeta:hover .frontal img{
+    transform: scale(2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.trasera img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1; 
+    z-index: 0;
+    filter: brightness(0.8);
+}
+
+.tarjeta:hover .trasera img{
+    animation: simpleZoom 3s ease-in forwards;
+}
+
+@keyframes simpleZoom {
+    from{transform: scale(1);}
+    to{transform: scale(1.2);}
+}
+
+.trasera h2 {
+    position: absolute;
+    bottom: 30%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(153, 0, 0);
+    transform: none;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-align: left; 
+}
+
+#nombre {
+    bottom: 23%;
+}
+#nombre2{
+    bottom: 27%;
+}
+
+.trasera:hover img {
+    transform: scale(1.05);
+    filter: contrast(0.8);
+}
+
+.frontal h2{
+    background: none;
+    position: relative;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(141, 40, 150);
+    transform: none;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-align:left;
+    margin: 0;
+    z-index: 2;
+} 
+
+#frase{
+    text-align: center;
+    color:#dcb1f5 ;
+    font-size: 40px;
+    font-style: italic;
+    padding: 1%;
+    font-family: 'Alumni sans SC' , sans-serif;
+}
+
+.piedepagina , .pie{
+    background-color: #72223f;
+    background-size: 0%;
+}
+
+.logofactoriaf5{
+    margin: 1rem auto;
+    height: auto;
+    width: clamp(15%, 9vw, 9%);
+}
+
+#logo{ width: 100%;}
+
+span {
+    color: #b9a2d1;
+    font-size: larger;
+    font-weight:bold;
+} 
+
+.trasera .aporte {
+    font-size: 0.99rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    padding: 0.6rem;
+    background: rgba(0, 0, 0, 0.2); 
+    color: white;
+    font-size: 0.9rem;
+    text-align: left;
+    backdrop-filter: blur(2px);
+}
+
+.frontal h2 {
+    position: absolute;
+    bottom: 0; /* o top: 10px para ponerlo arriba */
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    background: rgba(37, 36, 36, 0.3);
+    font-size: 0.9rem;
+    text-align: left;
+    z-index: 1;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
